@@ -10,6 +10,7 @@ class Solution {
                 arr[j] = arr[j - 1];
                 }
                 i++;
+                //this is necessary because if not then it will keep checking the current value and make the entire array equal to a bunch of zeroes 
             }
             
         }
