@@ -6,16 +6,16 @@
         int mid=0;
         while(left<=right)
         {
-            mid=left+(right-left)/2;
+            mid=(left+right)/2;
             sqrt=mid*mid;
             if(sqrt==x)    
-            return(mid);
+            break;
             else if(sqrt>x)
                 right=mid-1;
             else
                 left=mid+1;
         }
-        return((sqrt>x)?mid-1:mid);
+        return(int)((sqrt>x)?mid-1:mid);
         
     }
 }*/
