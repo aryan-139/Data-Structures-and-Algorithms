@@ -1,2 +1,4 @@
 # Data-Structures-and-Algorithms
-Collection of LeetCode questions to ace the coding interview! - Created using [LeetHub](https://github.com/QasimWani/LeetHub)
+
+The repository contains a collection of all the questions that I have solve till date on Leetcode. 
+language used- JAVA. 
