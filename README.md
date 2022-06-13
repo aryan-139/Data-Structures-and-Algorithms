@@ -5,17 +5,17 @@ language used- JAVA.
 
 ## Topics Covered
 
-Arrays
-Strings
-Linked List 
-Binary Search
-Trees 
-Binary Search Tree
-Graphs
-Recursion
-Trie
-Hash Table
-Queue and Stack 
-Decision Tree
-Dynamic Programming 
-Heap
+- Arrays
+- Strings
+- Linked List 
+- Binary Search
+- Trees 
+- Binary Search Tree
+- Graphs
+- Recursion
+- Trie
+- Hash Table
+- Queue and Stack 
+- Decision Tree
+- Dynamic Programming 
+- Heap
