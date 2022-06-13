@@ -5,7 +5,7 @@ language used- JAVA.
 
 ## Topics Covered
 
-- [] Arrays
+-[] Arrays
 - Strings
 - Linked List 
 - Binary Search
