@@ -54,9 +54,8 @@ class Solution {
                 continue;
             }
             else
-            {
                 unique.next=curr;
-            }
+            
             
            unique=unique.next;
         }
