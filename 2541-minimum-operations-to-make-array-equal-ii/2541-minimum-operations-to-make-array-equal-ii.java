@@ -1,26 +1,19 @@
 class Solution {
     public long minOperations(int[] nums1, int[] nums2, int k) {
-        
-    int n = nums1.length;
-    long[] diff = new long[n];
-    for (int i = 0; i < n; i++) {
-        diff[i] = nums2[i] - nums1[i];
-    }
-    if(k==0){
-        for(int i=0;i<n;i++)
-            if(diff[i]!=0)return -1;
-        return 0;
-    }
-    long ans = 0;
-    long sum=0;
-    for (int i = 0; i < n; i++) {
-        sum+=diff[i];
-        if (diff[i] % k != 0) {
-            return -1;
+        if (k == 0) {
+            return Arrays.equals(nums1, nums2) ? 0 : -1;
         }
-        ans += Math.abs(diff[i] / k);
-    }
-
-    return sum==0? ans/2:-1;
+        long ops = 0, bal = 0;
+        for (int i = 0; i < nums1.length; ++i) {
+            int diff = nums1[i] - nums2[i];
+            if (diff % k != 0) {
+                return -1;
+            }
+            if (diff > 0) {
+                ops += diff / k;
+            }
+            bal += diff;
+        } 
+        return bal == 0 ? ops : -1;        
     }
 }
