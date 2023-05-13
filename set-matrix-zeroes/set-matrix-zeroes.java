@@ -3,6 +3,7 @@ import java.util.Set;
 
 class Solution {
     public void setZeroes(int[][] matrix) {
+        // intuition is to basically have 2 HashSets working here
         Set<Integer> rows = new HashSet<>();
         Set<Integer> cols = new HashSet<>();
 
