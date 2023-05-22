@@ -12,8 +12,8 @@ class Solution {
                 c=0;
             }
         }
-        if(c>max)
-                    max=c;
+         if(c>max)
+                     max=c;
                 
         return(max);
         
