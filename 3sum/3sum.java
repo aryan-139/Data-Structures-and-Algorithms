@@ -5,46 +5,37 @@ import java.util.List;
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         Arrays.sort(nums);
-        List<List<Integer>> fin = new ArrayList<>();
+        List<List<Integer>> res = new ArrayList<>();
 
         for (int i = 0; i < nums.length - 2; i++) {
-            // Skip duplicates
-            if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            }
+            if (i == 0 || (i > 0 && nums[i] != nums[i - 1])) {
+                int lo = i + 1, hi = nums.length - 1, sum = 0 - nums[i];
 
-            int target = -nums[i];
-            int left = i + 1;
-            int right = nums.length - 1;
+                while (lo < hi) {
+                    if (nums[lo] + nums[hi] == sum) {
+                        List<Integer> temp = new ArrayList<>();
+                        temp.add(nums[i]);
+                        temp.add(nums[lo]);
+                        temp.add(nums[hi]);
+                        res.add(temp);
 
-            while (left < right) {
-                int sum = nums[left] + nums[right];
+                        while (lo < hi && nums[lo] == nums[lo + 1]) {
+                            lo++;
+                        }
+                        while (lo < hi && nums[hi] == nums[hi - 1]) {
+                            hi--;
+                        }
 
-                if (sum == target) {
-                    List<Integer> currTriplet = new ArrayList<>();
-                    currTriplet.add(nums[i]);
-                    currTriplet.add(nums[left]);
-                    currTriplet.add(nums[right]);
-                    fin.add(currTriplet);
-
-                    // Skip duplicates
-                    while (left < right && nums[left] == nums[left + 1]) {
-                        left++;
+                        lo++;
+                        hi--;
+                    } else if (nums[lo] + nums[hi] < sum) {
+                        lo++;
+                    } else {
+                        hi--;
                     }
-                    while (left < right && nums[right] == nums[right - 1]) {
-                        right--;
-                    }
-
-                    // Move pointers
-                    left++;
-                    right--;
-                } else if (sum < target) {
-                    left++;
-                } else {
-                    right--;
                 }
             }
         }
-        return fin;
+        return res;
     }
 }
