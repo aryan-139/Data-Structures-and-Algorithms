@@ -1,24 +1,22 @@
-import java.util.Stack;
-
 class Solution {
     public String reverseWords(String s) {
-        s += ' ';
-        //adding a space after the last character so that it matches our code
-        Stack<String> stack = new Stack<>();
-        String revstr = "";
-        String temp = "";
-        for (int i = 0; i < s.length(); i++) {
-            //checks for space in code and when we have some value input in the temp 
-            if (s.charAt(i) == ' ' && temp.length() > 0) {
-                stack.add(temp);
-                temp = "";
-            } else if (s.charAt(i) != ' ') {
-                temp += s.charAt(i);
-            }
+        // first initialise a stack in which we will simply push the words as we find using the delimiter of " "
+        Stack<String> st = new Stack<String>();
+        for (String a : s.trim().split(" ")) {
+            //s.trim().split(" ") one of the smartest command to be used, simply remove any whitespaces from before or after the string, and break the string into words using the delimiter of space
+            if (!a.isEmpty())
+                st.push(a);
+                //push the words to the stack
         }
-        while (!stack.isEmpty()) {
-            revstr += (stack.pop()).trim() + " ";
+        //initialise a string builder so that appending the words is easier 
+        StringBuilder sb = new StringBuilder();
+        while (!st.isEmpty()) {
+            sb.append(st.pop());
+            //append the top most word
+            sb.append(" ");
+            //add a space after it 
         }
-        return revstr.trim();
+        //return the stringbuilder as a string using the toString() and use the trim() to just remove the white spaces from the ends and return the resulting value
+        return sb.toString().trim();
     }
 }
