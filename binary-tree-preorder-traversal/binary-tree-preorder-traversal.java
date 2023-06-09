@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -15,17 +17,15 @@
  */
 class Solution {
     public List<Integer> preorderTraversal(TreeNode root) {
-        ArrayList<Integer> list=new ArrayList<Integer>();
-        preorder(root,list);
-        return(list);
+        ArrayList<Integer> ans=new ArrayList<>();
+        preorderUtil(root, ans);
+        return ans;
     }
-    public void preorder(TreeNode root, ArrayList l){
-        if(root==null)
-            return;
-        l.add(root.val);
-        if(root.left!=null)
-            preorder(root.left,l);
-        if(root.right!=null)
-            preorder(root.right,l);
+    private void preorderUtil(TreeNode curr, ArrayList<Integer> ans){
+        if(curr==null)
+        return;
+        ans.add(curr.val);
+        preorderUtil(curr.left, ans);
+        preorderUtil(curr.right, ans);
     }
 }
