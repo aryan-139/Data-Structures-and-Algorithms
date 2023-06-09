@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -15,15 +17,15 @@
  */
 class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
-        ArrayList <Integer> list= new ArrayList<Integer>();
-        traversal(root,list);
-        return(list);
+        ArrayList<Integer> ans=new ArrayList<>();
+        inorderUtil(root,ans);
+        return ans;
     }
-    public void traversal(TreeNode root,ArrayList<Integer> l){
-        if(root == null)
-            return;
-        traversal(root.left,l);
-        l.add(root.val);
-        traversal(root.right,l);
+    private void inorderUtil(TreeNode root, ArrayList<Integer> ans){
+        if(root==null)
+        return;
+        inorderUtil(root.left, ans);
+        ans.add(root.val);
+        inorderUtil(root.right, ans);
     }
 }
