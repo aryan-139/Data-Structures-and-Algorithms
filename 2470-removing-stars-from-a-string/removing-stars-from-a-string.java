@@ -1,6 +1,6 @@
 import java.util.LinkedList;
 import java.util.Stack;
-
+//this could have been solve d using stringbuilder class only 
 class Solution {
     public String removeStars(String s) {
         Stack<Character> backspace=new Stack<>();
