@@ -33,6 +33,6 @@ class Solution {
       
         dfsUtil(root.left, currVal, rootCopy);
         dfsUtil(root.right, currVal, rootCopy);
-        currVal=rootCopy;
+        // currVal=rootCopy;
     }
 }
