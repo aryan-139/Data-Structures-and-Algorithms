@@ -14,6 +14,9 @@ class Solution {
             
     //     }
     //     return val;
+    
+    
+    
     //Method 2 
 
     Arrays.sort(nums);
@@ -35,6 +38,9 @@ class Solution {
             return curr;  // Check for the last element
         }
     return -1;
+
+    //Method 3
+
 
     }
 }
