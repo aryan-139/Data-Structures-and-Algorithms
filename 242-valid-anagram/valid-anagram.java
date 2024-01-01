@@ -5,6 +5,7 @@ class Solution {
         for (int i = 0; i < s.length(); i++) {
             store[s.charAt(i) - 'a']++;
             store[t.charAt(i) - 'a']--;
+            //incrementing and decrementing to create a good check statement
         }
         for (int n : store) 
         if (n != 0) 
