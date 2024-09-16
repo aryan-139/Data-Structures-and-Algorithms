@@ -1,11 +1,13 @@
+import java.util.HashSet;
+import java.util.Arrays;
+
 class Solution {
     public boolean containsDuplicate(int[] nums) {
-        HashSet<Integer> set = new HashSet<>();
-        for (int i = 0; i < nums.length; i++) {
-            if (set.contains(nums[i])) {
+        Arrays.sort(nums);
+        // No need to check if length < 2, it won't contain duplicates
+        for(int i = 1; i < nums.length; i++) {
+            if(nums[i] == nums[i-1]) {  // Check if consecutive numbers are the same
                 return true;
-            } else {
-                set.add(nums[i]);
             }
         }
         return false;
