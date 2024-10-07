@@ -5,22 +5,14 @@ import java.util.List;
 class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
          Map<String, List<String>> map = new HashMap<>();
-
-        // Iterate through each string in the array
         for (String str : strs) {
-            // Convert the string to a character array and sort it
             char[] charArr = str.toCharArray();
             Arrays.sort(charArr);
             String sortedStr = new String(charArr);
             
-            // If the sorted string is not in the map, create a new list
             map.putIfAbsent(sortedStr, new ArrayList<>());
-            
-            // Add the original string to the corresponding list in the map
             map.get(sortedStr).add(str);
         }
-
-        // Return all the lists of anagrams as a single list
         return new ArrayList<>(map.values());
 
     //     List<List<String>> list = new ArrayList<>();
