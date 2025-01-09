@@ -1,5 +1,5 @@
 select p.email 
 from Person p
 group by p.email 
-HAVING count(*)>1
+HAVING count(p.email)>1
 
