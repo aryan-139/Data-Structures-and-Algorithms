@@ -1,6 +1,8 @@
 class Solution {
     public ListNode[] splitListToParts(ListNode head, int k) {
         ListNode[] result = new ListNode[k];
+        //intuition is that length/k 
+        //except the first list all others will be equal and the first will be n/k + n%k
         
         // Step 1: Find the total length of the list
         int totalLength = 0;
