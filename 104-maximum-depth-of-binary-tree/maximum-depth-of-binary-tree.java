@@ -1,12 +1,28 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
 class Solution {
     public int maxDepth(TreeNode root) {
-        if (root == null) {
-            return 0; // Base case: an empty tree has a depth of 0
-        }
-        int leftDepth = maxDepth(root.left); // Recursively calculate the depth of the left subtree
-        int rightDepth = maxDepth(root.right); // Recursively calculate the depth of the right subtree
-        int maxChildDepth = Math.max(leftDepth, rightDepth); // Get the maximum depth among the left and right subtrees
-        
-        return maxChildDepth + 1; // Add 1 to account for the current level
+       return dfs(root, 1);
+    }
+    public int dfs(TreeNode n, int depth){
+        if(n==null)
+        return depth-1;
+        int left= dfs(n.left, depth+1);
+        int right= dfs(n.right, depth+1);
+
+        return Math.max(left, right);
     }
 }
