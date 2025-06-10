@@ -26,3 +26,7 @@ class Solution {
         return memo[i][j];
     }
 }
+//solved minimum path sum using rescursion first then realised that the memo is nothing but a cache, 
+//so we keep calculating the memo at every sum step
+//backtracking -> O(2^ m+n)
+//dynamic programming using memo -> O(m*n)
