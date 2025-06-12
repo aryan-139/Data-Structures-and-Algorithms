@@ -6,8 +6,8 @@ class Solution {
     public int helper(int[] nums, int i, int currentSum, int maxSoFar) {
         if (i == nums.length) return maxSoFar;
 
-        currentSum = Math.max(nums[i], currentSum + nums[i]);  // restart or extend
-        maxSoFar = Math.max(maxSoFar, currentSum);              // update global max
+        currentSum = Math.max(nums[i], currentSum + nums[i]);  
+        maxSoFar = Math.max(maxSoFar, currentSum);              
 
         return helper(nums, i + 1, currentSum, maxSoFar);
     }
