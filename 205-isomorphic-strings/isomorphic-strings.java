@@ -14,7 +14,7 @@ class Solution {
                 set.add(ch2);
             }
         }
-        System.out.println(m);
+        System.out.println(set);
         return true; 
     }
 }
