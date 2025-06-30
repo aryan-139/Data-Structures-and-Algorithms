@@ -2,6 +2,7 @@ class Solution {
     public int orangesRotting(int[][] grid) {
         Queue<int[]> q= new LinkedList<>();
         int fresh=0;
+        //add all the rotten oranges and also count the fresh oranges for the last return 
         for(int i=0; i<grid.length; i++){
             for(int j=0; j<grid[0].length; j++){
                 if(grid[i][j]==2)
