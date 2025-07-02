@@ -5,7 +5,6 @@ class Solution {
             if(num==1){
                 count=count+1;
             }else{
-                System.out.println(max_count);
                 max_count=Math.max(max_count, count);
                 count=0;
             }   
