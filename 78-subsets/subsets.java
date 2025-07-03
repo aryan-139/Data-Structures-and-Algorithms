@@ -1,20 +1,17 @@
 class Solution {
     public List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> l = new ArrayList<>();
-        gVar(l, new ArrayList<>(), nums, 0);
-        return l;
+        List<List<Integer>> set= new ArrayList<>();
+        solve(set, nums, new ArrayList<>(), 0);
+        return set; 
     }
-
-    public void gVar(List<List<Integer>> res, List<Integer> current, int[] nums, int i) {
-        if (i == nums.length) {
-            res.add(new ArrayList<>(current));
-            return;
+    private void solve(List<List<Integer>> set, int nums[], List<Integer> c, int i){
+        if(i>=nums.length){
+            set.add(new ArrayList<>(c));  
+            return; 
         }
-
-        current.add(nums[i]);
-        gVar(res, current, nums, i + 1);
-
-        current.remove(current.size() - 1);
-        gVar(res, current, nums, i + 1);
+        c.add(nums[i]);
+        solve(set, nums, c, i+1);        
+        c.remove(c.size()-1);
+        solve(set, nums, c, i+1);   
     }
 }
