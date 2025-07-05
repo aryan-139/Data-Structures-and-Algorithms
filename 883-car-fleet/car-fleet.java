@@ -9,10 +9,12 @@ class Solution {
         Stack<Double> time= new Stack<>();
         for(int [] p: pair){
             time.push((double)(target-p[0])/p[1]);
-            if((time.size()>=2)&&(time.peek()<=time.get(time.size()-2))){
+            if(time.size()>=2 && (time.peek()<=time.get(time.size()-2))){
                 time.pop();
             }
+            
         }
+        System.out.print(time);
         return time.size();
     }
 } 
