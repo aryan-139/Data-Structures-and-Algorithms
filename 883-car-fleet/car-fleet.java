@@ -13,7 +13,6 @@ class Solution {
                 time.pop();
             }
         }
-        System.out.print(time);
         return time.size();
     }
 } 
