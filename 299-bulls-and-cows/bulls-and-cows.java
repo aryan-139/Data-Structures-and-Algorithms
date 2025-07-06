@@ -12,12 +12,9 @@ class Solution {
                 map.put(s, map.getOrDefault(s, 0) + 1);
             }
         }
-        //count cows 
         for (int i = 0; i < guess.length(); i++) {
             char s = secret.charAt(i);
             char g = guess.charAt(i);
-
-            // If not a bull, check if it's a cow
             if (s != g && map.containsKey(g) && map.get(g) > 0) {
                 cows++;
                 map.put(g, map.get(g) - 1);
