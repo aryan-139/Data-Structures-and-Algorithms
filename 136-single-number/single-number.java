@@ -1,9 +1,10 @@
 class Solution {
     public int singleNumber(int[] nums) {
-        int result=0;
-        for(int num: nums){
-            result^=num;
+        //XOR associativity property kicks in 
+        int num=0; 
+        for(int i: nums){
+            num^=i;
         }
-        return result;
+        return num; 
     }
 }
