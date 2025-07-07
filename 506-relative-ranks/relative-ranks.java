@@ -9,7 +9,6 @@ class Solution {
         int rank=1;
         while(!pq.isEmpty()){
             int[] val=pq.poll();
-            System.out.println(val[0]+" "+val[1]);
             if(rank==1)
             s[val[1]]="Gold Medal";
             else if(rank==2)
