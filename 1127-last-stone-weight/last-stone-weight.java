@@ -13,7 +13,6 @@ class Solution {
             if (x != y) {
                 pq.add(y - x);
             }
-            System.out.println(pq);
         }
         return (pq.size()==1)?pq.poll():0;
 
