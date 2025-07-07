@@ -6,10 +6,10 @@ class Solution {
             int val=matrix[row][col];
             if(val==target)
             return true; 
-            else if (val > target)
-                col--;
-            else
+            else if (val < target)
                 row++;
+            else
+                col--;
         }
         return false;
     }
