@@ -9,17 +9,12 @@ class Solution {
         Integer x=0;
         while (pq.size() > 1) {
             y = pq.poll();
-            x = pq.peek();
-            if (x == null)
-                break;
-            pq.poll();
-            System.out.println("x" + x + "y" + y);
+            x = pq.poll();
             if (x != y) {
                 pq.add(y - x);
             }
             System.out.println(pq);
         }
-        System.out.println("final"+pq.peek());
         return (pq.size()==1)?pq.poll():0;
 
     }
