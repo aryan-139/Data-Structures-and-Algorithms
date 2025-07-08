@@ -12,7 +12,6 @@ class Solution {
                 sum+=d;
                 n1/=10;
             }
-            System.out.println(sum);
             if(set.contains(sum)) return false;
             set.add(sum);
             n=sum;
