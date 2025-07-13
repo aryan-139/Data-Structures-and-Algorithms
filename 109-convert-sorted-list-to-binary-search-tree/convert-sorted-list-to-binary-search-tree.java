@@ -37,7 +37,6 @@ class Solution {
             slow = slow.next;
             fast = fast.next.next;
         }
-        System.out.print(slow.val);
         prev.next = null;
         TreeNode root = new TreeNode(slow.val);
         root.left = sortedListToBST(head ); 
