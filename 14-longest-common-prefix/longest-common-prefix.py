@@ -11,9 +11,3 @@ class Solution:
             if not pre: 
                 break
         return pre
-
-
-        
-            
-
-            
