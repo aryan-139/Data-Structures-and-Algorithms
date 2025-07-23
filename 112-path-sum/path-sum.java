@@ -19,7 +19,6 @@ class Solution {
         targetSum-=root.val;
         if(root==null)
         return false;
-        System.out.println(targetSum);
         if(((root.left==null) && (root.right==null))){
             if(targetSum==0)
             return true; 
