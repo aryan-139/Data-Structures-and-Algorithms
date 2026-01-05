@@ -5,7 +5,6 @@ class Solution {
         for(int p: prices){
             minPrice=Math.min(minPrice, p);
             maxProfit=Math.max(maxProfit, (p-minPrice));
-            System.out.println(p + " " + maxProfit);
         }
         return maxProfit; 
     }
