@@ -14,9 +14,22 @@
  * }
  */
 class Solution {
+    //bfs 
     public int maxDepth(TreeNode root) {
-        if(root==null) return 0; 
-        if(root.left==null && root.right==null) return 1; 
-        return 1+ Math.max(maxDepth(root.left), maxDepth(root.right));
+        Queue<TreeNode> q= new LinkedList<TreeNode>(); 
+        q.add(root); int height=0; 
+        if(root==null) return 0;
+        while(!q.isEmpty()){
+            int qSize=q.size();
+            for(int i=0; i<qSize; i++){
+                TreeNode curr= q.poll(); 
+                System.out.print(curr.val + " ");
+                if(curr.left!=null) q.add(curr.left);
+                if(curr.right!=null) q.add(curr.right);
+            }
+            System.out.println();
+            height++; 
+        } 
+        return height; 
     }
 }
