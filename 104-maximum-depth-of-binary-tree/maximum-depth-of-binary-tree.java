@@ -23,7 +23,6 @@ class Solution {
             int qSize=q.size();
             for(int i=0; i<qSize; i++){
                 TreeNode curr= q.poll(); 
-                System.out.print(curr.val + " ");
                 if(curr.left!=null) q.add(curr.left);
                 if(curr.right!=null) q.add(curr.right);
             }
