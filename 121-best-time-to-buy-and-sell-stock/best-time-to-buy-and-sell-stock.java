@@ -1,17 +1,12 @@
 class Solution {
     public int maxProfit(int[] prices) {
-        int maxProfit = 0;
-        int l = 0; // Buy day
-
-        for (int r = 1; r < prices.length; r++) { // Sell day
-            if (prices[r] > prices[l]) {
-                maxProfit = Math.max(maxProfit, prices[r] - prices[l]);
-            } else {
-                // Found a lower price to buy
-                l = r;
-            }
+        int minPrice=Integer.MAX_VALUE;
+        int maxProfit=0; 
+        for(int p: prices){
+            minPrice=Math.min(minPrice, p);
+            maxProfit=Math.max(maxProfit, (p-minPrice));
+            System.out.println(p + " " + maxProfit);
         }
-
-        return maxProfit;
+        return maxProfit; 
     }
 }
