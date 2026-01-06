@@ -16,12 +16,13 @@
 class Solution {
     TreeNode prev;
     public boolean isValidBST(TreeNode root) {
-        //it is not just about values, but think in subtrees
         if(root==null) return true; 
+        //operate on left 
         if(!isValidBST(root.left)) return false;
+        //operate on root
         if(prev!=null && prev.val>=root.val) return false;
         prev=root;  
-        //every node on root.right 
+        //operate on right 
         return isValidBST(root.right); 
     }
 }
