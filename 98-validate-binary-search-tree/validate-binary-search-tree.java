@@ -14,16 +14,14 @@
  * }
  */
 class Solution {
+    TreeNode prev;
     public boolean isValidBST(TreeNode root) {
-        return v(root, Long.MIN_VALUE, Long.MAX_VALUE);
-    }
-
-    public boolean v(TreeNode root, long min, long max) {
-        if (root == null)
-            return true;
-        if (root.val <= min || root.val >= max)
-            return false;
-        return v(root.left, min, root.val) && v(root.right, root.val, max);
-
+        //it is not just about values, but think in subtrees
+        if(root==null) return true; 
+        if(!isValidBST(root.left)) return false;
+        if(prev!=null && prev.val>=root.val) return false;
+        prev=root;  
+        //every node on root.right 
+        return isValidBST(root.right); 
     }
 }
