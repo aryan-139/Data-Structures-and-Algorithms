@@ -5,21 +5,24 @@ class Solution {
     public List<List<String>> partition(String s) {
         List<List<String>> res = new ArrayList<>();
         List<String> path = new ArrayList<>();
-        findPalPartitions(0, s, path, res);
+        pal(0, s, path, res);
         return res;
     }
     
-    void findPalPartitions(int index, String s, List<String> path, List<List<String>> res) {
-        if (index == s.length()) {
-            res.add(new ArrayList<>(path));
+    void pal(int index, String s, List<String> p, List<List<String>>r){
+        if(index==s.length()){
+            r.add(new ArrayList<>(p));
             return;
         }
-        for (int i = index; i < s.length(); i++) {
-            if (checkPalindrome(s.substring(index, i + 1))) {
-                path.add(s.substring(index, i + 1));
-                findPalPartitions(i + 1, s, path, res);
-                path.remove(path.size() - 1);
+        for(int i=index; i<s.length(); i++){
+            if(checkPalindrome(s.substring(index, i + 1))){
+                //add sub
+                 p.add(s.substring(index, i + 1));
+                 pal(i+1, s, p, r);
+                 //remove
+                 p.remove(p.size()-1);
             }
+
         }
     }
     
