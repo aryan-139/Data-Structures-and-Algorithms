@@ -6,15 +6,12 @@ class Solution {
         for(int i=1; i<nums.length-1; i++){
             if(nums[i]==ve){
                 c++;
-                System.out.println(i+" "+ve+" "+c);
             }
             else {
                 --c;
-                System.out.println(i+" "+ve+" "+c);
             }
 
             if(c==0){
-                System.out.println(i+" "+ve);
                 ve=nums[i+1];
             }
 
