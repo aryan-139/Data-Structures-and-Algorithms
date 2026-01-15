@@ -1,34 +1,23 @@
-import java.util.Arrays;
-
 class Solution {
-    public int findPeakElement(int[] num) {    
-    return helper(num,0,num.length-1);
-}
-
-public int helper(int[] num,int start,int end){
-    if(start == end){
-        return start;
-    }else if(start+1 == end){
-        if(num[start] > num[end]) return start;
-        return end;
-    }else{
-        
-        int m = (start+end)/2;
-        
-        if(num[m] > num[m-1] && num[m] > num[m+1]){
-
-            return m;
-
-        }else if(num[m-1] > num[m] && num[m] > num[m+1]){
-
-            return helper(num,start,m-1);
-
-        }else{
-
-            return helper(num,m+1,end);
-
+    //whichever side has a greater element-> i will tend towards that side
+    public int findPeakElement(int[] nums) {
+        int lo=0; 
+        int high=nums.length-1;
+        int len=nums.length;
+        //boundaries either sides are -infinity 
+        if(len==1) return 0;
+        if(nums[0]>nums[1]) return 0;
+        if(nums[len-2]< nums[len-1]) return len-1; 
+        while(lo<high){
+            int mid=(lo+high)/2;
+            System.out.println(lo+" "+mid+" "+high);
+            if(nums[mid]>nums[mid-1] && nums[mid]>nums[mid+1]) return mid; 
+            else if(nums[mid+1]> nums[mid]) lo=mid+1;
+            else{
+                high=mid;
+            }
         }
+        return -1;
         
     }
-}
 }
