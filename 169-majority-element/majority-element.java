@@ -16,7 +16,6 @@ class Solution {
             }
 
         }
-        System.out.print(ve);
         return ve;
         //O(n) to determine which one has > n/2
 
