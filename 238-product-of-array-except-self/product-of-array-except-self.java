@@ -1,22 +1,28 @@
 class Solution {
     public int[] productExceptSelf(int[] nums) {
-        int suffix[]= new int[nums.length];
-        Arrays.fill(suffix, 1); int prod=1;
-        //populate suffix
-        for(int i=nums.length-1; i>=0; i--){
-            prod*=nums[i];
-            suffix[i]=prod;
+        //calculate prefix product array 
+        //calculate postfix product array 
+        int [] pre= new int[nums.length];
+        int [] post=new int[nums.length];
+        pre[0]=nums[0];
+        for(int i=1; i<nums.length; i++){
+            pre[i]=pre[i-1]*nums[i];
         }
-        int prefix=1;
-        int arr[]=new int[nums.length];
-        for(int j=0; j<nums.length-1;j++){
-            arr[j]=prefix*suffix[j+1];
-            prefix*=nums[j];
-            System.out.println(arr[j]);
-            
+        post[nums.length-1]=nums[nums.length-1];
+        for(int j=nums.length-2; j>=0; --j){
+            post[j]=post[j+1]*nums[j];
         }
-        arr[nums.length-1]=prefix;
-        System.out.print(Arrays.toString(suffix));
-        return arr;
+        int res[]= new int[nums.length];
+        for(int i=0; i<nums.length; i++){
+            if(i==0){
+                res[0]=post[i+1];
+            }
+            else if(i==nums.length-1){
+                res[nums.length-1]=pre[nums.length-2];
+            }else{
+                res[i]=pre[i-1]*post[i+1];
+            }
+        }
+        return res;
     }
 }
