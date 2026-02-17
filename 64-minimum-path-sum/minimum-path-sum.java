@@ -1,32 +1,21 @@
 class Solution {
     public int minPathSum(int[][] grid) {
-        int m= grid.length;
-        int n= grid[0].length; 
-        int memo[][]= new int[m][n];
-        for(int []row: memo)
-        Arrays.fill(row, -1);
-        return solve(grid, 0, 0, memo);
+        int [][]memo= new int[grid.length][grid[0].length];
+        for(int i=0; i<grid.length; i++){
+            for(int j=0; j<grid[0].length; j++){
+                memo[i][j]=-1; 
+            }
+        }
+        return dp(grid,0, 0, memo);
     }
-    public int solve(int [][]grid, int i, int j, int memo[][]){
-        int m = grid.length;
-        int n = grid[0].length;
-        
-        if(i>=m || j>=n)
-        return Integer.MAX_VALUE;
-        
-        if((i==(m-1))&&(j==(n-1)))
-        return grid[i][j];
-
-        if (memo[i][j] != -1) return memo[i][j];
-
-        int down= solve(grid, i+1, j, memo);
-        int right= solve(grid, i, j+1, memo);
-
-        memo[i][j]= grid[i][j] + Math.min(down, right);
+    private int dp(int[][] grid, int i, int j, int[][]memo){
+        if(i>=grid.length || j>=grid[0].length) return Integer.MAX_VALUE;
+        if(i==grid.length-1 && j==grid[0].length-1) return grid[i][j]; 
+        if(memo[i][j]!=-1) return memo[i][j]; 
+        int down= dp(grid, i+1, j, memo);
+        int right=dp(grid, i, j+1, memo);
+        memo[i][j]= grid[i][j]+ Math.min(down, right);
         return memo[i][j];
+
     }
 }
-//solved minimum path sum using rescursion first then realised that the memo is nothing but a cache, 
-//so we keep calculating the memo at every sum step
-//backtracking -> O(2^ m+n)
-//dynamic programming using memo -> O(m*n)
