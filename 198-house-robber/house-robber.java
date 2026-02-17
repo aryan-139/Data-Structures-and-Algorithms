@@ -7,6 +7,7 @@ class Solution {
     }
     private int robFrom(int [] nums, int i, int sum, int[]memo){
         if(i> nums.length-1) return 0;
+        //is it present in the memo cache?
         if(memo[i]!=-1) return memo[i];
         //pick 
         int pick= nums[i]+ robFrom(nums, i+2, sum, memo);
