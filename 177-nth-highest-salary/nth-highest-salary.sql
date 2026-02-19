@@ -1,12 +1,15 @@
-CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+CREATE OR REPLACE FUNCTION NthHighestSalary(N INT) RETURNS TABLE (Salary INT) AS $$
 BEGIN
-  DECLARE offsetValue INT;
-  SET offsetValue = N - 1;
-
-  RETURN (
-    SELECT DISTINCT salary
-    FROM Employee
-    ORDER BY salary DESC
-    LIMIT 1 OFFSET offsetValue
+  RETURN QUERY (
+    with RankedSalaries as (
+        select e.id, e.salary, 
+        dense_rank() over (order by e.salary desc) as rank
+        from Employee as e
+    )
+    select r.salary 
+    from RankedSalaries as r
+    where rank = N
+    limit 1
   );
 END;
+$$ LANGUAGE plpgsql;
